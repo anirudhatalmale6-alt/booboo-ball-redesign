@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boo Boo Ball — We Make Boo-Boos Fun!</title>
+<meta name="description" content="A first-aid kit and a comforting plush, all in one. Ice packs, matching bandages, bravery stickers and ointment tucked inside every huggable friend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF8F0;
+  --paper:#FFFFFF;
+  --ink:#2F2A3D;
+  --ink-soft:#635C78;
+  --blush:#FF7FA8;
+  --blush-deep:#E85C8A;
+  --sky:#5CC9E8;
+  --mint:#63D19B;
+  --butter:#FFC94D;
+  --grape:#9B7FE8;
+  --peach:#FFA26B;
+  --r-lg:34px;
+  --r-md:24px;
+  --r-sm:14px;
+  --shadow:0 14px 0 rgba(47,42,61,.07);
+  --shadow-hi:0 22px 34px -18px rgba(47,42,61,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Nunito',system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  overflow-x:hidden;
+  background-image:radial-gradient(rgba(255,127,168,.14) 1.6px, transparent 1.7px);
+  background-size:26px 26px;
+}
+h1,h2,h3,h4,.display{font-family:'Baloo 2',cursive;font-weight:800;line-height:1.06;letter-spacing:-.01em;margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1240px,92vw);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- announcement + nav ---------- */
+.ticker{background:var(--ink);color:#fff;font-weight:700;font-size:14px;letter-spacing:.04em;padding:9px 0;text-align:center}
+.ticker span{display:inline-block;padding:0 14px}
+.ticker b{color:var(--butter)}
+header{position:sticky;top:0;z-index:60;background:rgba(255,248,240,.92);backdrop-filter:blur(10px);border-bottom:3px solid rgba(47,42,61,.07)}
+.nav{display:flex;align-items:center;gap:20px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.blob{width:46px;height:46px;border-radius:50% 50% 48% 52%/52% 48% 52% 48%;background:var(--blush);display:grid;place-items:center;box-shadow:0 6px 0 var(--blush-deep);flex:none}
+.blob i{display:block;width:24px;height:9px;border-radius:5px;background:#fff;transform:rotate(-38deg);position:relative}
+.blob i::after{content:"";position:absolute;inset:2px 7px;background:rgba(255,127,168,.55);border-radius:3px}
+.brand-txt strong{display:block;font-family:'Baloo 2',cursive;font-size:21px;font-weight:800;letter-spacing:.03em;line-height:1}
+.brand-txt em{font-style:normal;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
+nav.links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav.links a{
+  text-decoration:none;font-weight:800;font-size:15px;padding:9px 15px;border-radius:999px;
+  transition:background .18s ease,color .18s ease,transform .18s ease
+}
+nav.links a:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}
+.callbtn{
+  flex:none;text-decoration:none;font-weight:800;font-size:15px;background:var(--ink);color:var(--cream);
+  padding:11px 20px;border-radius:999px;box-shadow:0 5px 0 rgba(47,42,61,.35);transition:transform .16s ease,box-shadow .16s ease
+}
+.callbtn:hover{transform:translateY(-3px);box-shadow:0 8px 0 rgba(47,42,61,.35)}
+.burger{display:none;margin-left:auto;background:var(--ink);color:var(--cream);border:0;border-radius:14px;padding:10px 14px;font-size:19px;cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{padding:52px 0 30px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:34px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;background:var(--butter);color:var(--ink);
+  font-weight:800;font-size:13px;letter-spacing:.11em;text-transform:uppercase;
+  padding:8px 17px;border-radius:999px;box-shadow:0 5px 0 rgba(47,42,61,.14);margin-bottom:20px
+}
+.hero h1{font-size:clamp(46px,6.6vw,86px)}
+.hero h1 .pop{
+  color:var(--blush);position:relative;display:inline-block;
+  animation:wiggle 5s ease-in-out infinite
+}
+@keyframes wiggle{0%,88%,100%{transform:rotate(-2deg)}92%{transform:rotate(3deg)}96%{transform:rotate(-3deg)}}
+.hero p.lede{font-size:19px;color:var(--ink-soft);max-width:31em;margin:20px 0 30px;font-weight:600}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  border:0;cursor:pointer;font-family:'Baloo 2',cursive;font-weight:700;font-size:19px;
+  padding:15px 30px;border-radius:999px;text-decoration:none;display:inline-block;
+  transition:transform .16s ease,box-shadow .16s ease
+}
+.btn-primary{background:var(--blush);color:#fff;box-shadow:0 7px 0 var(--blush-deep)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 11px 0 var(--blush-deep)}
+.btn-ghost{background:#fff;color:var(--ink);box-shadow:0 7px 0 rgba(47,42,61,.16)}
+.btn-ghost:hover{transform:translateY(-3px);box-shadow:0 11px 0 rgba(47,42,61,.16)}
+
+.hero-art{position:relative}
+.hero-photo{
+  border-radius:var(--r-lg);overflow:hidden;background:var(--sky);
+  box-shadow:var(--shadow-hi);aspect-ratio:1/1;
+  transform:rotate(-2deg)
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.chip-float{
+  position:absolute;background:#fff;border-radius:20px;padding:11px 17px;font-weight:800;font-size:14px;
+  box-shadow:0 12px 24px -12px rgba(47,42,61,.5);display:flex;align-items:center;gap:9px;white-space:nowrap
+}
+.chip-float b{font-size:19px;line-height:1}
+.chip-1{top:8%;left:-4%;animation:bob 4.2s ease-in-out infinite}
+.chip-2{bottom:16%;right:-3%;animation:bob 5.1s ease-in-out infinite .6s}
+.chip-3{bottom:-3%;left:9%;animation:bob 4.6s ease-in-out infinite 1.2s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-11px) rotate(2deg)}}
+
+/* ---------- inside strip ---------- */
+.inside{margin:44px 0 10px;background:var(--ink);border-radius:var(--r-lg);padding:34px;color:var(--cream)}
+.inside h2{font-size:29px;margin-bottom:6px}
+.inside p.sub{color:rgba(255,248,240,.72);font-weight:600;margin:0 0 26px}
+.inside-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.inside-card{background:rgba(255,255,255,.07);border-radius:var(--r-md);padding:22px 20px}
+.inside-card .ic{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;font-size:25px;margin-bottom:13px}
+.inside-card h3{font-size:20px;margin-bottom:5px}
+.inside-card p{margin:0;font-size:14.5px;color:rgba(255,248,240,.7);font-weight:600;line-height:1.5}
+
+/* ---------- sections ---------- */
+section{padding:62px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin-bottom:30px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(34px,4.4vw,52px)}
+.sec-head p{margin:9px 0 0;color:var(--ink-soft);font-weight:600;max-width:44ch}
+.squiggle{display:block;width:120px;height:12px;margin-bottom:14px}
+
+/* filter chips */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.filters button{
+  font-family:'Baloo 2',cursive;font-size:17px;font-weight:700;border:0;cursor:pointer;
+  background:#fff;color:var(--ink);padding:10px 22px;border-radius:999px;
+  box-shadow:0 5px 0 rgba(47,42,61,.12);transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease
+}
+.filters button:hover{transform:translateY(-2px)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--cream);box-shadow:0 5px 0 rgba(47,42,61,.35)}
+
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{
+  background:var(--paper);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;border:0;
+  text-align:left;font:inherit;color:inherit;padding:0;display:flex;flex-direction:column;
+  box-shadow:var(--shadow);transition:transform .22s cubic-bezier(.2,.8,.3,1),box-shadow .22s ease
+}
+.card:hover{transform:translateY(-9px) rotate(-1.1deg);box-shadow:var(--shadow-hi)}
+.card:focus-visible{outline:4px solid var(--grape);outline-offset:3px}
+.card .ph{position:relative;aspect-ratio:1/1;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.3,1)}
+.card:hover .ph img{transform:scale(1.07)}
+.tag{
+  position:absolute;top:13px;left:13px;background:#fff;font-size:12px;font-weight:800;
+  letter-spacing:.07em;text-transform:uppercase;padding:6px 13px;border-radius:999px;
+  box-shadow:0 4px 10px -4px rgba(47,42,61,.5)
+}
+.card .body{padding:17px 19px 21px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card h3{font-size:21px}
+.card .desc{font-size:14.5px;color:var(--ink-soft);font-weight:600;line-height:1.5;flex:1;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:5px}
+.price{font-family:'Baloo 2',cursive;font-weight:800;font-size:23px}
+.look{font-size:13.5px;font-weight:800;color:var(--blush-deep);letter-spacing:.03em}
+
+/* ---------- story ---------- */
+.story{background:var(--mint);border-radius:var(--r-lg);padding:0;overflow:hidden}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.story-txt{padding:52px 46px}
+.story-txt h2{font-size:clamp(32px,4vw,48px);margin-bottom:16px}
+.story-txt p{font-weight:600;font-size:17.5px;margin:0 0 15px;color:#1F4633}
+.story-photo img{width:100%;height:100%;object-fit:cover;min-height:340px}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.stat{background:rgba(255,255,255,.75);border-radius:20px;padding:13px 20px}
+.stat b{display:block;font-family:'Baloo 2',cursive;font-size:27px;line-height:1}
+.stat span{font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#2C6047}
+
+/* ---------- promises ---------- */
+.promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.promise{background:#fff;border-radius:var(--r-lg);padding:30px 28px;box-shadow:var(--shadow)}
+.promise .ic{font-size:32px;margin-bottom:12px}
+.promise h3{font-size:23px;margin-bottom:7px}
+.promise p{margin:0;color:var(--ink-soft);font-weight:600;font-size:15.5px}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--cream);padding:56px 0 30px;margin-top:20px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:34px}
+footer h4{font-size:19px;margin-bottom:13px}
+footer a{color:rgba(255,248,240,.74);text-decoration:none;font-weight:600;font-size:15.5px;display:block;padding:4px 0}
+footer a:hover{color:var(--butter)}
+footer p{color:rgba(255,248,240,.66);font-weight:600;font-size:15px;margin:0 0 10px}
+.f-bottom{margin-top:38px;padding-top:20px;border-top:1px solid rgba(255,248,240,.16);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px;color:rgba(255,248,240,.5);font-weight:600}
+.f-brand .blob{box-shadow:0 6px 0 var(--blush-deep)}
+
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;z-index:100;display:none;padding:24px}
+.modal.open{display:grid;place-items:center}
+.scrim{position:absolute;inset:0;background:rgba(47,42,61,.62);backdrop-filter:blur(4px)}
+.sheet{
+  position:relative;background:var(--cream);border-radius:var(--r-lg);width:min(1020px,100%);
+  max-height:88vh;overflow:auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);
+  animation:pop .28s cubic-bezier(.2,.9,.3,1.2)
+}
+@keyframes pop{from{transform:scale(.94) translateY(14px);opacity:0}to{transform:none;opacity:1}}
+.sheet-grid{display:grid;grid-template-columns:1fr 1fr}
+.gal{padding:22px}
+.gal .main{border-radius:var(--r-md);overflow:hidden;aspect-ratio:1/1;background:#fff}
+.gal .main img{width:100%;height:100%;object-fit:cover}
+.thumbs{display:flex;gap:9px;margin-top:11px;flex-wrap:wrap}
+.thumbs img{width:60px;height:60px;object-fit:cover;border-radius:13px;cursor:pointer;opacity:.55;transition:opacity .15s ease,transform .15s ease}
+.thumbs img:hover,.thumbs img.on{opacity:1;transform:translateY(-3px)}
+.det{padding:30px 30px 34px}
+.det h2{font-size:34px;margin-bottom:9px}
+.det .price{font-size:29px;color:var(--blush-deep);margin-bottom:14px}
+.det p{font-weight:600;color:var(--ink-soft);font-size:16px}
+.det ul{padding-left:0;list-style:none;margin:16px 0}
+.det li{font-weight:700;font-size:15.5px;padding:7px 0 7px 30px;position:relative}
+.det li::before{content:"";position:absolute;left:0;top:12px;width:17px;height:8px;border-radius:4px;background:var(--blush);transform:rotate(-30deg)}
+.closeb{position:absolute;top:15px;right:15px;z-index:3;background:#fff;border:0;width:44px;height:44px;border-radius:50%;font-size:22px;cursor:pointer;box-shadow:0 8px 18px -8px rgba(0,0,0,.5)}
+.closeb:hover{transform:scale(1.08)}
+
+@media(max-width:1000px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .inside-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-grid,.story-grid,.sheet-grid{grid-template-columns:1fr}
+  .story-txt{padding:38px 30px}
+  .story-photo img{min-height:260px}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  nav.links{display:none}
+  nav.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:12px;box-shadow:0 20px 30px -20px rgba(0,0,0,.4)}
+  .burger{display:block}
+  .callbtn{display:none}
+  .grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .promise-grid{grid-template-columns:1fr}
+  .hero{padding-top:34px}
+  .chip-1,.chip-3{display:none}
+  .card h3{font-size:18px}
+  .det{padding:22px}
+  section{padding:44px 0}
+}
+@media(max-width:430px){ .grid{grid-template-columns:1fr} .inside-grid{grid-template-columns:1fr} }
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <span>🚚 <b>Free shipping</b> on USA orders over $75</span>
+  <span>🩹 First-aid kit <b>+</b> comforting plush, all in one</span>
+  <span>❄️ Non-toxic, food-grade ice packs</span>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="blob"><i></i></span>
+      <span class="brand-txt"><strong>BOO BOO BALL</strong><em>First Aid Plushies</em></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+    <nav class="links" id="links">
+      <a href="#plushies">Plushies</a>
+      <a href="#keychains">Keychains</a>
+      <a href="#icepacks">Ice Packs</a>
+      <a href="#shop">Everything</a>
+      <a href="#story">Our Story</a>
+    </nav>
+    <a class="callbtn" href="tel:16366973445">1-636-697-3445</a>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="wrap hero">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">🩹 The world's most huggable first-aid kit</span>
+      <h1>We make<br>boo-boos <span class="pop">fun!</span></h1>
+      <p class="lede">A cuddly friend on the outside, a complete kid's first-aid kit on the inside. Unzip the hidden pouch and you'll find a matching ice pack, designer bandages, bravery stickers and ointment — everything a little one needs to feel brave again.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#shop">Meet the crew</a>
+        <a class="btn btn-ghost" href="#inside">What's inside?</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-photo"><img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Unicorn-Plush-1_1.jpg?v=1662154487" alt="A child hugging a Boo Boo Ball plush" loading="eager"></div>
+      <div class="chip-float chip-1"><b>❄️</b> Matching ice pack</div>
+      <div class="chip-float chip-2"><b>🩹</b> 12 designer bandages</div>
+      <div class="chip-float chip-3"><b>⭐</b> Bravery stickers</div>
+    </div>
+  </div>
+
+  <div class="inside" id="inside">
+    <h2>Unzip the pouch. Everything's in there.</h2>
+    <p class="sub">Every Boo Boo Ball hides a full kit inside a zipper on its back.</p>
+    <div class="inside-grid">
+      <div class="inside-card"><div class="ic" style="background:var(--sky)">❄️</div><h3>Gel ice pack</h3><p>Food-grade and non-toxic, matched to your plush. Works hot or cold.</p></div>
+      <div class="inside-card"><div class="ic" style="background:var(--blush)">🩹</div><h3>12 bandages</h3><p>Designer bandages printed to match your friend's face.</p></div>
+      <div class="inside-card"><div class="ic" style="background:var(--butter)">⭐</div><h3>6 bravery stickers</h3><p>Because getting through it deserves a reward.</p></div>
+      <div class="inside-card"><div class="ic" style="background:var(--mint)">💊</div><h3>Ointment packets</h3><p>3 Safetec® antibiotic ointment packets, sealed and ready.</p></div>
+    </div>
+  </div>
+</div>
+
+<section id="plushies">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <svg class="squiggle" viewBox="0 0 120 12" fill="none"><path d="M2 8c8-8 16 8 24 0s16 8 24 0 16 8 24 0 16 8 24 0" stroke="#FF7FA8" stroke-width="4" stroke-linecap="round"/></svg>
+        <h2>Meet the Boo Boo Crew</h2>
+        <p>The full-size plushies. Big enough to hug, roomy enough to hide a whole first-aid kit.</p>
+      </div>
+      <a class="btn btn-ghost" href="#shop">See everything</a>
+    </div>
+    <div class="grid" id="grid-plushies"></div>
+  </div>
+</section>
+
+<section id="keychains" style="padding-top:12px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <svg class="squiggle" viewBox="0 0 120 12" fill="none"><path d="M2 8c8-8 16 8 24 0s16 8 24 0 16 8 24 0 16 8 24 0" stroke="#5CC9E8" stroke-width="4" stroke-linecap="round"/></svg>
+        <h2>Fun first-aid, on the go</h2>
+        <p>Clip-on keychain versions for backpacks, dance bags and dugouts.</p>
+      </div>
+    </div>
+    <div class="grid" id="grid-keychains"></div>
+  </div>
+</section>
+
+<section id="icepacks" style="padding-top:12px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <svg class="squiggle" viewBox="0 0 120 12" fill="none"><path d="M2 8c8-8 16 8 24 0s16 8 24 0 16 8 24 0 16 8 24 0" stroke="#63D19B" stroke-width="4" stroke-linecap="round"/></svg>
+        <h2>Don't let your Boo Boo Ball go empty</h2>
+        <p>Refill packs of non-toxic, food-grade ice packs — cold for bumps, warm for comfort.</p>
+      </div>
+    </div>
+    <div class="grid" id="grid-icepacks"></div>
+  </div>
+</section>
+
+<section id="story" style="padding-top:12px">
+  <div class="wrap">
+    <div class="story">
+      <div class="story-grid">
+        <div class="story-txt">
+          <h2>Scary medical moments, made a little softer.</h2>
+          <p>Band-aids, ice packs and ointment don't look friendly to a four-year-old. So we hid them inside someone who does.</p>
+          <p>Every Boo Boo Ball is a plush friend first — Lily the unicorn, Finn the shark, Arlo the sheep, Mr. Lizarbocker the dragon — with a zipper pouch on the back holding a complete, kid-safe first-aid kit. Bumps, scrapes, shots, hospital visits and rough days all get a little easier when comfort arrives first and the kit comes second.</p>
+          <div class="stats">
+            <div class="stat"><b>4</b><span>Plush friends</span></div>
+            <div class="stat"><b>100%</b><span>Non-toxic</span></div>
+            <div class="stat"><b>$75+</b><span>Ships free</span></div>
+          </div>
+        </div>
+        <div class="story-photo"><img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_9460.jpg?v=1636406784" alt="Boo Boo Ball plush and matching kit" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="shop" style="padding-top:12px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <svg class="squiggle" viewBox="0 0 120 12" fill="none"><path d="M2 8c8-8 16 8 24 0s16 8 24 0 16 8 24 0 16 8 24 0" stroke="#FFC94D" stroke-width="4" stroke-linecap="round"/></svg>
+        <h2>The whole collection</h2>
+        <p>Tap any friend to see their photos and everything tucked inside.</p>
+      </div>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid-all"></div>
+  </div>
+</section>
+
+<section style="padding-top:12px">
+  <div class="wrap promise-grid">
+    <div class="promise"><div class="ic">🧸</div><h3>Comfort first</h3><p>A friend to hold before anything cold or sticky comes anywhere near a scraped knee.</p></div>
+    <div class="promise"><div class="ic">🧪</div><h3>Non-toxic &amp; food grade</h3><p>The gel inside every ice pack is food-grade, so little hands and mouths are safe.</p></div>
+    <div class="promise"><div class="ic">🎁</div><h3>Gift-ready</h3><p>Bundles arrive in cute gift-box wrapping — birthdays, baby showers, get-well soon.</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="brand f-brand" style="margin-bottom:14px">
+          <span class="blob"><i></i></span>
+          <span class="brand-txt"><strong>BOO BOO BALL</strong><em style="color:rgba(255,248,240,.6)">First Aid Plushies</em></span>
+        </div>
+        <p>A first-aid kit and a comforting plush, all in one. We make boo-boos fun!</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#plushies">Plushies</a>
+        <a href="#keychains">Keychains</a>
+        <a href="#icepacks">Ice Packs</a>
+        <a href="#shop">Bundles &amp; Merch</a>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <a href="#inside">What's inside</a>
+        <a href="#story">Our story</a>
+        <a href="#shop">Shipping</a>
+        <a href="#shop">Wholesale</a>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <a href="tel:16366973445">1-636-697-3445</a>
+        <a href="#top">Facebook</a>
+        <a href="#top">Instagram</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© Boo Boo Ball™. All rights reserved.</span>
+      <span>Design concept — demo build</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Product details">
+  <div class="scrim" data-close></div>
+  <div class="sheet">
+    <button class="closeb" data-close aria-label="Close">✕</button>
+    <div class="sheet-grid">
+      <div class="gal">
+        <div class="main"><img id="m-img" src="" alt=""></div>
+        <div class="thumbs" id="m-thumbs"></div>
+      </div>
+      <div class="det">
+        <span class="tag" style="position:static;display:inline-block;margin-bottom:12px;box-shadow:0 4px 0 rgba(47,42,61,.12)" id="m-cat"></span>
+        <h2 id="m-name"></h2>
+        <div class="price" id="m-price"></div>
+        <p id="m-blurb"></p>
+        <ul id="m-bul"></ul>
+        <p id="m-more" style="font-size:15px"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PRODUCTS = [{"id": "dragon-plushie-kids-first-aid-kit", "name": "Mr. Lizarbocker the Dragon", "primary": "Plushies", "cats": ["Plushies"], "price": "45.00", "blurb": "Introducing the World's Only Plushie with a hidden First-Aid Kit!", "bullets": ["1 Non-Toxic, Gel Bed Ice Pack (hot and cold use)", "12 Matching Mr. Lizarbocker Kids Bandages", "3 Safetec\u00ae antibiotic ointment packets."], "body": ["Introducing the World's Only Plushie with a hidden First-Aid Kit!", "Mr. Lizarbocker is not only an adorable fluffy dragon, he also has a noble purpose. Inside his secret zipper pouch, he comes with a kids' first-aid kit! Mr. Lizarbocker Dragon First-Aid Kit is ready to help with any & all bumps, scrapes, & hurt feelings.", "Mr. Lizarbocker's soft, huggable material is perfect for snuggling, but the best part about him is knowing that this little brave Boo Boo Ball is always there to lend a helping hand.", "Help your child feel better with the BOO BOO BALL\u2122 Dragon Plushie: Mr. Lizarbocker. This cute dragon plush is sure to become a comforting companion for years to come!", "Grab a Mr. Lizarbocker Refill Kit , too!", "Mr. Lizarbocker comes with a Boo Boo First-Aid Kit:", "\u2744 1 Non-Toxic, Gel Bed Ice Pack (hot and cold use);", "\ud83e\ude79 12 Matching Mr. Lizarbocker Kids Bandages;", "\ud83d\udc32 6 Matching Cute Dragon Stickers;", "\ud83d\udc8a 3 Safetec\u00ae antibiotic ointment packets.", "All found inside a secret zipper pouch on his back!", "Soft little wings with matching floppy ears bring ferociously cute charm to a friendly dragon plushie with a long pointy tail. Mr. Lizarbocker is always ready to share secrets and give hugs.", "Why Should you get the Mr. Lizarbocker Boo Boo Ball:", "The secret first-aid pouch is the perfect all-in-one solution for any minor injury or boo-boo."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/dragon-plushie-1_1.jpg?v=1662151375", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/Mr.Lizarbocker_e37552f0-4f28-4323-832d-ee81edb5cf2e.png?v=1715610003", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/dragon-plushie-3_1.jpg?v=1715610003", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_6945.jpg?v=1715610003", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_6979.jpg?v=1715610003", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/dragon-plushie-4_1.jpg?v=1715610003", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/dragon-plushie-5_1.jpg?v=1715610003", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/dragon-plushie-6_1.jpg?v=1715610003"]}, {"id": "shark-plush-toy-kids-first-aid-kit", "name": "Finn the Shark", "primary": "Plushies", "cats": ["Plushies"], "price": "45.00", "blurb": "Meet Finn Shark ! He is not your average shark plushy!", "bullets": ["1 Non-Toxic, Gel Bed Ice Pack (hot and cold use)", "12 Matching Fun Bandages", "6 Matching Shark Stickers", "3 Safetec\u00ae antibiotic ointment packets."], "body": ["Looking for a fun First-Aid Kit for your little one?", "Meet Finn Shark ! He is not your average shark plushy! He comes with a hidden first-aid kit for kids! Inside his mouth, you'll find all the supplies your kiddo needs to feel better in a flash, like an ice pack, bandages, and antibiotic ointment. Plus, it comes with cute shark stickers that are sure to bring a smile to their face!", "This Shark Plush is perfect for kids who are nervous during medical moments, or don't like going to the doctor. Finn's squishy ball-shaped body makes him perfect for squeezing, calming all that anxiety and stress. This unique shark plush toy is sure to become your child's new best friend!", "Finn Shark comes with a Cute First-Aid Kit:", "\u2744 1 Non-Toxic, Gel Bed Ice Pack (hot and cold use);", "\ud83e\ude79 12 Matching Fun Bandages;", "\ud83e\udd88 6 Matching Shark Stickers;", "\ud83d\udc8a 3 Safetec\u00ae antibiotic ointment packets.", "All tucked away inside Finn Shark's body!", "Finn's big teeth might seem scary, but he's shy and sweet and helps you feel BRAVE! Finn is always ready to share secrets and give hugs. Squeeze him tight with all your might!", "Why Should you get The Finn Shark BOO BOO BALL:", "With a secret first aid-kit inside, this toy is perfect for comforting children in the event of an emergency.", "Your child can have their fluffy friend with them during doctor's appointments or any time they need a little extra TLC.", "Makes the perfect spot for keeping an EpiPen or inhaler inside for camp & sleepovers!"], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Shark-Plush-Toy-1_1.jpg?v=1662152595", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/FinnShark.png?v=1715609416", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Shark-Plush-Toy-8_1.jpg?v=1715610072", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_6780.jpg?v=1715610072", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_6809.jpg?v=1715610072", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_6871.jpg?v=1715610072", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Shark-Plush-Toy-2_1.jpg?v=1715610072", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Shark-Plush-Toy-3_1.jpg?v=1715610072"]}, {"id": "sheep-plush-kids-first-aid-kit", "name": "Arlo the Sheep", "primary": "Plushies", "cats": ["Plushies"], "price": "45.00", "blurb": "Look no further than our Arlo Sheep Plushie + First-Aid Kit IN ONE! This fluffy sheep comes with a secret zipper pouch on their back, containing all the supplies a kid needs to feel prepared for minor medical emergencies.", "bullets": ["Non-Toxic, Food Grade Kids Ice Pack (hot and cold use)", "12 Matching Sheep Bandages", "3 Safetec\u00ae antibiotic ointment packets."], "body": ["Looking for a Unique Gift for a Child in your life?", "Look no further than our Arlo Sheep Plushie + First-Aid Kit IN ONE! This fluffy sheep comes with a secret zipper pouch on their back, containing all the supplies a kid needs to feel prepared for minor medical emergencies.", "The reusable ice pack, cute Arlo Sheep bandages, and antibiotic ointment packets are sure to come in handy when your kid gets hurt. Plus, the fun stickers & a hug from Arlo Sheep himself, will help make the experience more bearable.", "Most importantly, Arlo Sheep Plush will provide comfort and support during a potentially scary situation. Give your child the gift of security and peace of mind today!", "Also, grab an Arlo Sheep Plush First-Aid Keychain for boo boos on-the-go now!", "Arlo Plush Sheep comes with an exclusive Kids First-Aid Kit that includes:", "\u2744 Non-Toxic, Food Grade Kids Ice Pack (hot and cold use);", "\ud83e\ude79 12 Matching Sheep Bandages;", "\ud83d\udc0f 6 Fun Arlo Sheep Stickers;", "\ud83d\udc8a 3 Safetec\u00ae antibiotic ointment packets.", "All found inside a secret first-aid kit pouch in Arlo's back!", "Arlo Sheep's happy face, sweet smile, and chunky ball-shaped body give this irresistibly plush friend his lovable charm. Arlo is always ready to share secrets and give hugs when needed.", "Why Should you Get this Cute Sheep:", "It's the perfect gift for a child that's scared of first-aid supplies."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-Plush-Arlo-1_1.jpg?v=1662153533", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/Arlo_Sheep.png?v=1715608808", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-Plush-Arlo-2_1.jpg?v=1715610139", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-Plush-Arlo-3_1.jpg?v=1715610139", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-Plush-Arlo-4_1.jpg?v=1715610139", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-Plush-Arlo-5_1.jpg?v=1715610139", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-Plush-Arlo-6_1.jpg?v=1715610139", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-Plush-Arlo-7_1.jpg?v=1715610139"]}, {"id": "unicorn-plush-toy-first-aid-kit", "name": "Lily the Unicorn", "primary": "Plushies", "cats": ["Plushies"], "price": "45.00", "blurb": "Looking for a Cuddly and Comforting Friend for your Little One?", "bullets": ["1 Gel Bed, Food-Grade Unicorn Ice Pack (hot/cold use)", "12 Matching Unicorn Bandages", "6 Fun Unicorn Stickers", "3 Safetec\u00ae antibiotic ointment packets."], "body": ["Looking for a Cuddly and Comforting Friend for your Little One?", "Look no further than the Unicorn Plush: Lily! This fluffy unicorn comes with a cool kid's first-aid kit, containing everything your child needs to feel safe and prepared in case of minor bumps and bruises.", "Ice packs, colorful bandages, boo-boo cream, and fun stickers are all packed into this handy toy first-aid kit, making it the perfect addition to any child's bedroom or playroom.", "The best part? Lily Unicorn also helps to ease the anxiety that comes along with scary medical supplies, making it a must-have for any family with kids.", "Lily Plush Unicorn comes with a Boo-Boo Kit that includes:", "\u2744 1 Gel Bed, Food-Grade Unicorn Ice Pack (hot/cold use);", "\ud83e\ude79 12 Matching Unicorn Bandages;", "\ud83e\udd84 6 Fun Unicorn Stickers;", "\ud83d\udc8a 3 Safetec\u00ae antibiotic ointment packets.", "All found inside a hidden zipper pouch on his back!", "Lily Unicorn's super cute face, sweet smile and fun squishy ball-shaped body, give this irresistibly plush unicorn friend her magic. Lily is always ready to share secrets and give hugs when you need one! For drama queens who don't do boring boo-boos!", "Reasons to get Lily Unicorn Boo Boo Ball:", "Makes your child feel better about those scary first-aid supplies.", "Its huggable design makes it the perfect plush friend for kids during their time of need."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Unicorn-Plush-1_1.jpg?v=1662154487", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/LiliyUnicorn_308d8b58-bbdb-4c53-bfa4-c0b30f333b14.png?v=1715609984", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_7039.jpg?v=1715610683", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_7049.jpg?v=1715610683", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_7073.jpg?v=1715610683", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Unicorn-Plush-3_1.jpg?v=1715610683", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Unicorn-Plush-4_1.jpg?v=1715610683", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Unicorn-Plush-2_1.jpg?v=1715610683"]}, {"id": "baseball-keychain", "name": "Baseball Keychain", "primary": "Keychains", "cats": ["Keychains", "Sports"], "price": "29.00", "blurb": "Baseball bruises? Base-sliding scrapes?", "bullets": ["10 Matching Baseball Bandages", "3 Matching Baseball Stickers", "2 Safetec\u00ae Triple Antibiotic Ointment Packets"], "body": ["Baseball bruises? Base-sliding scrapes? Your BOO BOO BALL is here for it all!", "This adorable baseball emergency kit is the perfect accessory for any diehard baseball fan out there. Not only does it show your love for the game, but it also comes in handy in case of any minor injuries.", "Includes bandages, antibiotic ointment, a refillable metal tin, and fun stickers - everything you need to patch up those boo-boos, bruises and scrapes. Plus, it clips onto your kid's backpack or sports bag, so they'll always have a bandage handy.", "So next time you're at the ballpark, make sure your kid is prepared for anything with this handy baseball keychain emergency kit!", "Grab a Baseball Ice Pack , too!", "Our Baseball Keychain comes with a secret Kids First-Aid Kit:", "\ud83e\ude79 10 Matching Baseball Bandages;", "\u26be 3 Matching Baseball Stickers;", "\ud83d\udc8a 2 Safetec\u00ae Triple Antibiotic Ointment Packets;", "\ud83d\udce4 1 Re-Fillable vintage sliding metal tin.", "The ultimate gift for baseball fans and players, baseball moms, and baseball coaches too. Clip to your backpack or sports bag for boo-boos ON-THE-GO!", "Why Should you get The BOO BOO BALL Baseball Keychain:", "The BOO BOO BALL Baseball keychain is also great for storing small necessities like hair accessories, small medicine, money, cards, and secret stuff inside.", "Perfect for those little accidents, your kids will always have a bandage handy."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-keychain-1.jpg?v=1662142756", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/38.png?v=1687632015", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-keychain-2_1.jpg?v=1687632015", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-keychain-3_1.jpg?v=1687632015", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-keychain-4_1.jpg?v=1687632015", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-keychain-5_1.jpg?v=1687632015", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-keychain-6_1.jpg?v=1687632015", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-keychain-7_1.jpg?v=1687632015"]}, {"id": "basketball-keychain", "name": "Basketball Keychain", "primary": "Keychains", "cats": ["Keychains", "Sports"], "price": "29.00", "blurb": "This fun & functional basketball emergency kit is a great gift for basketball fans, players, coaches, and parents. It is a must-have accessory to be prepared for any minor injuries that may occur during a game or practice.", "bullets": ["10 Matching Basketball Bandages", "3 Matching Basketball Stickers", "2 Safetec\u00ae Triple Antibiotic Ointment Packets"], "body": ["Get ready to REBOUND after every BOO-BOO!", "This fun & functional basketball emergency kit is a great gift for basketball fans, players, coaches, and parents. It is a must-have accessory to be prepared for any minor injuries that may occur during a game or practice.", "The BOO BOO BALL\u2122 basketball keychain comes with a secret pouch containing a mini first-aid kit for kids, including bandages, antibiotic ointment, a refillable metal tin, and fun stickers - everything you need to make your child feel better, MAKING A REBOUND IN NO TIME!", "Plus, it clips easily to your children's backpacks so they'll always have a bandage handy. Any basketball fan will love this thoughtful and practical gift!", "Grab a Basketball Ice Pack , too!", "Our Basketball Keychain comes with a mini First-Aid Kit inside:", "\ud83e\ude79 10 Matching Basketball Bandages;", "\ud83c\udfc0 3 Matching Basketball Stickers;", "\ud83d\udc8a 2 Safetec\u00ae Triple Antibiotic Ointment Packets;", "\ud83d\udce4 1 Re-Fillable vintage sliding metal tin.", "This is the ultimate gift for basketball fans, coaches and parents alike. Clip to a backpack or sports bag to heal ouchies on & off the court!", "Why Should you get The BOO BOO BALL Basketball Keychain:", "Perfect for on-the-go boo-boos, bruises, and scrapes, this keychain is sure to come in handy.", "You can also use it for storing small necessities like hair accessories, small medicine, money, and business cards."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/basketball-keychain-1.png?v=1662150124", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/41.png?v=1687632029", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/basketball-keychain-2_1.jpg?v=1687632029", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/basketball-keychain-3_1.jpg?v=1687632029", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/basketball-keychain-4_1.jpg?v=1687632029", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/basketball-keychain-5_1.jpg?v=1687632029", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/basketball-keychain-6_1.jpg?v=1687632029"]}, {"id": "cheer-pom-pom-keychain", "name": "Cheer Pom Pom Keychain", "primary": "Keychains", "cats": ["Keychains", "Sports"], "price": "29.00", "blurb": "The fun & functional keychain that every cheerleader & coach NEEDS!", "bullets": ["10 Matching Bandages", "2 Safetec\u00ae Triple Antibiotic Ointment Packets"], "body": ["The fun & functional keychain that every cheerleader & coach NEEDS!", "Whether you're a cheerleader, coach, or dance mom, our cheerleading keychain is the perfect way to show your support for your team.", "The Cheer Pom-Pom Keychain comes with a mini first-aid kit hidden in a zipper pouch. Inside, you'll find bandages, antibiotic ointment, a refillable metal tin, and fun cheerleading stickers!", "The keychains clip easily to your backpack or cheer bag, so you're always prepared for bruises and scrapes on the go. With our cheerleading keychains, you'll be cheering your team on in style!", "Grab a Cheer Ice Pack , too!", "Our Cheer Pom Pom Keychain comes with a secret First-Aid Kit inside:", "\ud83e\ude79 10 Matching Bandages;", "\ud83d\udc96 3 Matching Cheerleading Stickers;", "\ud83d\udc8a 2 Safetec\u00ae Triple Antibiotic Ointment Packets;", "\ud83d\udce4 1 Re-Fillable vintage sliding metal tin.", "The ultimate gift for cheerleaders, coaches, dancers, cheer moms, & dance moms! Clip to your backpack or cheer bag to heal ouchies on & off the mat!", "Why Should you get The BOO BOO BALL Cheerleading Keychain:", "The BOO BOO BALL cheerleading keychain is also perfect for storing small necessities like hair accessories, small medicine pouches, lip balm & more!", "You never know when you're going to need a bandage or antibiotic ointment for minor cuts or scrapes - Always have one handy with our easy-to-reach emergency keychain!"], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-pom-pom-keychain-1.jpg?v=1662150972", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/40.png?v=1687632061", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-pom-pom-keychain-2_1.jpg?v=1687632061", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-pom-pom-keychain-3_1.jpg?v=1687632061", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-pom-pom-keychain-4_1.jpg?v=1687632061", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-pom-pom-keychain-5_1.jpg?v=1687632061", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-pom-pom-keychain-6_1.jpg?v=1687632061"]}, {"id": "shark-keychain-finn", "name": "Finn Keychain", "primary": "Keychains", "cats": ["Keychains"], "price": "29.00", "blurb": "Looking for a fun and practical Shark Keychain for your kids?", "bullets": ["10 Matching Fun Bandages", "3 Matching Shark Stickers", "2 Safetec\u00ae Triple Antibiotic Ointment Packets"], "body": ["Looking for a fun and practical Shark Keychain for your kids?", "Finn Shark Keychain with a secret Kids First-Aid Kit is the perfect gift for any child! This adorable plush keychain is perfect for kids (and teens!) who love sharks and want to be prepared for anything.", "The plush shark keychain comes with a secret first-aid kit that includes bandages, antibiotic ointment, a refillable metal tin, and fun stickers. Plus, it clips to your kid's backpack, so they'll always have a bandage handy when they need it.", "And if your kid is feeling anxious, the Shark Keychain can help calm the nerves and provide some much-needed comfort during difficult times!", "Finn Shark Keychain comes with a secret Kids First-Aid Kit:", "\ud83e\ude79 10 Matching Fun Bandages;", "\ud83e\udd88 3 Matching Shark Stickers;", "\ud83d\udc8a 2 Safetec\u00ae Triple Antibiotic Ointment Packets;", "\ud83d\udce4 1 Re-Fillable vintage sliding metal tin.", "...all found inside a secret zipper pouch in his shark mouth!", "Finn's happy face, sweet smile and fun squishy ball-shaped body, give this irresistibly plush friend his lovable charm. Finn is always ready to share secrets and give hugs.", "Why Should you get this Baby Shark Keychain:", "Is also great for storing small necessities like hair accessories, small medicine, money, and business cards.", "The secret first aid kit inside is perfect for those little emergencies, like a scraped knee or a splinter."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Shark-Keychain-1_1.jpg?v=1662152348", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/43.png?v=1687632095", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Shark-Keychain-2_1.jpg?v=1687632095", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Shark-Keychain-3_1.jpg?v=1687632095", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Shark-Keychain-4_1.jpg?v=1687632095", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_6871_8770040c-001f-45dc-8b99-312deddbc6ba.jpg?v=1687632253", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Shark-Keychain-5_1.jpg?v=1687632253", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Shark-Keychain-6_1.jpg?v=1687632253"]}, {"id": "sheep-keychain-arlo", "name": "Arlo Keychain", "primary": "Keychains", "cats": ["Keychains"], "price": "29.00", "blurb": "Check out our Arlo Sheep Keychain with First Aid Kit! This cute plush keychain is perfect for kids on the go and comes with a secret mini first-aid kit, perfect for those little accidents that seem to happen at the worst times.", "bullets": ["10 Matching Sheep Bandages", "2 Safetec\u00ae Antibiotic Ointment Packets"], "body": ["Looking for a fun but practical Keychain for your kids?", "Check out our Arlo Sheep Keychain with First Aid Kit! This cute plush keychain is perfect for kids on the go and comes with a secret mini first-aid kit, perfect for those little accidents that seem to happen at the worst times.", "The secret pouch contains bandages, triple antibiotic ointment packets, a refillable metal tin, and funny stickers - everything you need to make your child feel better in a pinch. Plus, this keychain plush clips onto their backpack so you'll always have a bandage handy.", "So whether you're looking for a way to calm your child's anxiety or simply want to be prepared for anything, our Sheep Keychain with First-Aid Kit for Kids is a perfect choice.", "This Stuffed Animal Keychain comes with a mini First-Aid Kit:", "\ud83e\ude79 10 Matching Sheep Bandages;", "\ud83d\udc0f 3 Fun Arlo Sheep Stickers;", "\ud83d\udc8a 2 Safetec\u00ae Antibiotic Ointment Packets;", "\ud83d\udce4 1 Re-Fillable vintage sliding metal tin.", "...all found inside a secret zipper pouch on his tummy.", "Arlo's happy face, sweet smile and fun squishy ball-shaped body, give this irresistibly plush friend his lovable charm. Arlo is always ready to share secrets and give hugs.", "Why Should you get this Fluffy Keychain:", "Perfect for kids, teenagers, and grandma's purses.", "You never know when your kid is going to need a bandaid or antibiotic ointment for minor cuts or scrapes!"], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-KeychainArlo-1_1.jpg?v=1662153281", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/42.png?v=1687632158", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-KeychainArlo-2_1.jpg?v=1687632158", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-KeychainArlo-3_1.jpg?v=1687632158", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-KeychainArlo-4_1.jpg?v=1687632158", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-KeychainArlo-5_1.jpg?v=1687632158"]}, {"id": "soccer-ball-keychain", "name": "Soccer Ball Keychain", "primary": "Keychains", "cats": ["Keychains", "Sports"], "price": "29.00", "blurb": "Calling all soccer-lovers & boo-boo getters: We have the cutest boo-boo supplies on the field!", "bullets": ["10 Matching Soccer Bandages", "3 Matching Soccer Ball Stickers", "2 Safetec\u00ae Triple Antibiotic Ointment Packets"], "body": ["Calling all soccer-lovers & boo-boo getters: We have the cutest boo-boo supplies on the field!", "This soccer keychain is not only a stylish accessory for soccer fans, but it also holds a secret first-aid kit for kids. Great for parents who want to be prepared for any boo-boos, bruises, or scrapes their children might get.", "The mini emergency kit comes with soccer-themed bandages, antibiotic ointment, a refillable metal tin, and fun soccer stickers. It also clips easily to a backpack or sports bag, making it perfect for taking along to games or practice.", "Plus, it's also great to store small necessities inside like hair accessories, small medicine, money, and business cards! So if you want your soccer kid to be prepared for anything, our Soccer Ball Keychain is the perfect solution.", "Our Soccer Ball Keychain comes with a secret Kids First-Aid Kit:", "\ud83e\ude79 10 Matching Soccer Bandages;", "\u26bd 3 Matching Soccer Ball Stickers;", "\ud83d\udc8a 2 Safetec\u00ae Triple Antibiotic Ointment Packets;", "\ud83d\udce4 1 Re-Fillable vintage sliding metal tin.", "This is the ultimate gift for soccer fans, coaches and parents alike. Clip to a backpack or sports bag to heal ouchies on & off the field.", "Why Should you get The BOO BOO BALL Soccer Keychain:", "The bandages and antibiotic ointment packets are perfect for dealing with boo-boos, bruises, and scrapes.", "Use it as a handy first-aid solution for your kids or just as a fun accessory for your keys.", "Everybody get boo-boos! Teens, soccer fans, parents, and soccer coaches will love it too!"], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/soccer-keychains-1.jpg?v=1662153845", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/39.png?v=1687632076", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/soccer-keychains-2_1.jpg?v=1687632076", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/soccer-keychains-3_1.jpg?v=1687632076", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/soccer-keychains-4_1.jpg?v=1687632076", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/soccer-keychains-5_1.jpg?v=1687632076", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/soccer-keychains-6_1.jpg?v=1687632076", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/soccer-keychains-7_1.jpg?v=1687632076"]}, {"id": "unicorn-keychain-lily", "name": "Lily Keychain", "primary": "Keychains", "cats": ["Keychains"], "price": "29.00", "blurb": "Looking for a unique Unicorn Keychain that will make your child smile?", "bullets": ["10 Matching Unicorn Bandages", "3 Fun Unicorn Stickers", "2 Safetec\u00ae Triple Antibiotic Ointment Packets"], "body": ["Looking for a unique Unicorn Keychain that will make your child smile?", "Look no further than the Lily Unicorn Keychain with a First-Aid Kit! This adorable plush keychain is not only functional but sure to put a smile on your child's face. The mini first-aid kit for kids includes bandages, antibiotic ointment, a refillable metal tin, and fun stickers.", "The best part? This plush unicorn keychain clips onto your child's backpack, so they'll always have a bandage handy. Not to mention that it can also be used to store small necessities like hair accessories, medicine packets, money, and business cards.", "And if your child is feeling anxious, the Unicorn Keychain with First-Aid Kit is sure to calm their nerves and provide some much-needed comfort and soothing.", "Lily Unicorn Keychain comes with a mini Kids First-Aid Kit :", "\ud83e\ude79 10 Matching Unicorn Bandages;", "\ud83e\udd84 3 Fun Unicorn Stickers;", "\ud83d\udc8a 2 Safetec\u00ae Triple Antibiotic Ointment Packets;", "\ud83d\udce4 1 Re-Fillable vintage sliding metal tin.", "For ouchies on the go... A hidden zipper on your fluffy friend hiding your self-care necessities!", "Lily's happy face, sweet smile and fun squishy ball-shaped body, give this irresistibly plush friend their lovable charm. Lily is always ready to share secrets and give hugs.", "Why Should you get this Unicorn Plush Keychain:", "Your kid is always prepared! Store chapstick, money, business cards, small medicines & any other necessities clipped to their backpack at all times!", "The unicorn mini backpack keychain comes with a mini first-aid kit, so your kid will always have a bandage handy."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/unicorn-keychain-1_1.jpg?v=1662154151", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/44.png?v=1687632136", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/unicorn-keychain-2_1.jpg?v=1687632136", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/unicorn-keychain-4_1.jpg?v=1687632136", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/unicorn-keychain-5_1.jpg?v=1687632136", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/unicorn-keychain-6_1.jpg?v=1687632136", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/unicorn-keychain-7_1.jpg?v=1687632136", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/unicorn-keychain-8_1.jpg?v=1687632136"]}, {"id": "baseball-ice-pack", "name": "Baseball Ice Pack", "primary": "Ice Packs", "cats": ["Ice Packs", "Sports"], "price": "12.00", "blurb": "Make sure you're always prepared for the baseball park with our Baseball Ice Pack for Kids! This handy reusable ice pack is perfect for taking along to games or practice, in case of any boo-boos.", "bullets": [], "body": ["Make sure you're always prepared for the baseball park with our Baseball Ice Pack for Kids! This handy reusable ice pack is perfect for taking along to games or practice, in case of any boo-boos.", "Made of non-toxic & food-grade gel beads, it's safe for your children to use. Plus, the flexible gel beads conform to any area on the body, making it perfect to soothe bumps and bruises.", "So when sliding bases gets the best of them, you can rest assured that our baseball ice pack for kids has got them covered!", "Frequently bought together: Be sure to check out our Baseball First-Aid Keychain , to get your baseball bandages, stickers, & baseball-shaped first-aid kit!", "You can use our Baseball Ice Pack Hot or Cold:", "\ud83e\uddca COLD: Place in freezer for one hour before use.", "\ud83d\udd25 HOT: Warm in hot water before use or microwave for 10-15 seconds.", "Non-toxic, food-grade gel beads. BPA Free. Latex Free. Wipe clean. 100% safe for your kids!", "Why Should you Get our Baseball Ice Pack:", "This sports ice pack is beautifully designed like a real baseball, so your little one will love using it.", "This is the perfect way to soothe bumps and bruises, whether it's from sliding the bases or just from everyday life.", "Plus, it's reusable, so your kids can carry them from the ballpark to school !", "Fun Tips:", "Heated ice packs can be placed in mittens or pockets for instant winter warmth."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-ice-pack-1.jpg?v=1662142157", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-ice-pack-2.jpg?v=1662142157", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-ice-pack-3.jpg?v=1662142156", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-ice-pack-4.jpg?v=1662142156"]}, {"id": "basketball-ice-pack", "name": "Basketball Ice Pack", "primary": "Ice Packs", "cats": ["Ice Packs", "Sports"], "price": "12.00", "blurb": "Looking for a way to help your kiddo bounce back from boo-boos? Check out our Basketball Ice Pack !", "bullets": [], "body": ["Looking for a way to help your kiddo bounce back from boo-boos? Check out our Basketball Ice Pack ! Made of flexible gel beads, this reusable ice pack is perfect for soothing bumps and bruises both on & off the court.", "Plus, it's small enough to carry to games and practices, so your child can use it as soon as they need it. And because it's made of non-toxic food-grade gel beads, you can be sure it's safe for your little ones.", "Help your child get back in the game with our Basketball Ice Pack!", "For even more basketball protection, check out our Basketball First-Aid Keychain with a basketball bandages, stickers, and a basketball-shaped first-aid kit!", "You can use our Basketball Ice Pack Hot or Cold:", "\ud83e\uddca COLD: Place in freezer for one hour before use.", "\ud83d\udd25 HOT: Warm in hot water before use or microwave for 5-10 seconds.", "Non-toxic, food-grade gel beads. BPA Free. Latex Free. Wipe clean. It's 100% safe for your kids!", "Why Should you Get our Basketball Ice Pack:", "This basketball ice pack is designed like a real basketball, so your little one will love using it. We make boo-boos fun!", "This is the perfect way to soothe bumps and bruises, whether it's from playing basketball or just from everyday life.", "It\u2019s reusable, so your kids can carry it from school to the basketball court!", "Fun Tips:", "Heated ice packs can be placed in mittens or pockets for instant winter warmth."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/basketball-ice-pack-1_1.jpg?v=1662149906", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/basketball-ice-pack-2_1.jpg?v=1662149906", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/basketball-ice-pack-3_1.jpg?v=1662149906", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/basketball-ice-pack-4_1.jpg?v=1662149906", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9296.jpg?v=1707030145"]}, {"id": "cheer-icepack", "name": "Cheer Ice Pack", "primary": "Ice Packs", "cats": ["Ice Packs", "Sports"], "price": "12.00", "blurb": "Introducing the Cheerleading Ice Pack for Kids ! This amazing ice pack is perfect for soothing any minor injuries sustained during cheerleading practice or performances.", "bullets": [], "body": ["Introducing the Cheerleading Ice Pack for Kids ! This amazing ice pack is perfect for soothing any minor injuries sustained during cheerleading practice or performances.", "Made with non-toxic, food-grade flexible gel beads, this cheerleading ice pack is safe for kids and teens too. Simply place it on the affected area and make them instantly feel better from bumps, bruises, or other minor injuries.", "Perfect for cheerleaders of all ages, this cheerleading ice pack will help them stay in top form so they can keep cheering on their team to victory!", "Also, check out our Cheerleading First-Aid Keychain to get your CHEER bandages, CHEER stickers, and POM POM-shaped first-aid kit!", "You can use our Cheerleading Ice Pack Hot or Cold:", "\ud83e\uddca COLD: Place in freezer for one hour before use.", "\ud83d\udd25 HOT: Warm in hot water before use or microwave for 5-10 seconds.", "Non-toxic, food-grade gel beads. BPA Free. Latex Free. Wipe clean. 100% safe for your kids!", "Why Should you Get our Cheerleading Ice Pack:", "The compact size makes it easy to throw in any lunchbox or cooler", "Plus, it is reusable for long-term relief.", "Fun Tips:", "Keep your child's lunch box contents fresh and cold all day with one or two of these handy ice packs.", "In a pinch, your kid can also slip heated packs in mittens or pockets for instant winter warmth."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-ice-pack-1_1.jpg?v=1662150403", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-ice-pack-2_1.jpg?v=1662150403", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-ice-pack-3_1.jpg?v=1662150403", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-ice-pack-4_1.jpg?v=1662150403", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-ice-pack-5_1.jpg?v=1662150403", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-ice-pack-6_1.jpg?v=1662150403"]}, {"id": "non-toxic-ice-pack-dragon-lizarbocker", "name": "Mr. Lizarbocker Ice Pack", "primary": "Ice Packs", "cats": ["Ice Packs"], "price": "12.00", "blurb": "Looking for a fun way to soothe your child's bumps and bruises? Look no further than our Non-Toxic Ice Pack: Mr.", "bullets": [], "body": ["Looking for a fun way to soothe your child's bumps and bruises? Look no further than our Non-Toxic Ice Pack: Mr. Lizarbocker Dragon!", "This reusable ice pack is made of flexible gel beads that will instantly make your little one feel better. The best part is that it's made of non-toxic food-grade gel beads, so you know it's safe for your children.", "Your kids will love this fun and functional dragon ice pack when they need a little extra reassurance! Order your Non-Toxic Ice Pack: Mr. Lizarbocker Dragon today!", "You can use our Non-Toxic Ice Pack Hot or Cold:", "\ud83e\uddca COLD: Place in freezer for one hour before use.", "\ud83d\udd25 HOT: Warm in hot water before use or microwave for 5-10 seconds.", "Non-toxic, food-grade gel beads. BPA Free. Latex Free. Wipe clean. You can be sure they're safe for your kids.", "Why Should you Get Mr. Lizarbocker Ice Pack:", "This Ice Pack is a great way to keep your kids comfortable while they heal.", "The flexible beads contour to the body, providing quick relief for bumps and bruises.", "In addition to helping with bruises, it is perfect for use in your child's lunch box.", "Fun Tips:", "Simply slip it into a mitten or pocket for instant winter warmth!", "Or place one or two in your lunch box to keep food fresh and cold!"], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Non-Toxic-Ice-Pack-Mr-Lizarbocker-Dragon-1_1.jpg?v=1662152047", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Non-Toxic-Ice-Pack-Mr-Lizarbocker-Dragon-2_1.jpg?v=1662152047", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Non-Toxic-Ice-Pack-Mr-Lizarbocker-Dragon-3_1.jpg?v=1662152047", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_6922.jpg?v=1707029646", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_6914.jpg?v=1707029652", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_7210.jpg?v=1714344352"]}, {"id": "kids-ice-pack-finn-shark", "name": "Finn Ice Pack", "primary": "Ice Packs", "cats": ["Ice Packs"], "price": "12.00", "blurb": "Looking for a naturally cooling and soothing remedy for your little one's bumps, bruises, and growing pains? Look no further than our Finn Shark Ice Pack for Kids!", "bullets": [], "body": ["Looking for a naturally cooling and soothing remedy for your little one's bumps, bruises, and growing pains? Look no further than our Finn Shark Ice Pack for Kids!", "This reusable ice pack is perfect for kids of all ages. It's filled with flexible, non-toxic gel beads that feel great on sore muscles and joints. Plus, the shark design will make your little ones feel brave and fearless.", "We all know how difficult it can be to get kids to take their medicine or put ice on an injury. But with the Finn Shark Ice Pack, they'll actually want to!", "Frequently bought together: Check out our Finn Shark First-Aid Keychain , to get your shark bandages, shark stickers, and SHARK-SHAPED FIRST-AID KIT!", "You can use our Kids Ice Pack Hot or Cold:", "\ud83e\uddca COLD: Place in freezer for one hour before use.", "\ud83d\udd25 HOT: Warm in hot water before use or microwave for 5-10 seconds.", "Non-toxic, food-grade gel beads. BPA Free. Latex Free. Wipe clean. You can be sure they're safe for your children.", "Why Should you Get our Finn Shark Kids Ice Pack:", "They're perfect for those unexpected accidents, sunburns, or even fevers.", "The flexible beads contour to the body, providing relief for bumps and bruises, insect bites, fevers, sunburns, ear aches, sprains, and growing pains.", "In addition to helping with bruises, it is perfect for use in your child's lunch box.", "Fun Tips for using the Ice Pack:", "Heated packs can be placed in mittens or pockets for instant winter warmth."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Kids-Ice-Pack-Finn-Shark-1_1.jpg?v=1662151716", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Kids-Ice-Pack-Finn-Shark-2_1.jpg?v=1662151716", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_6809_c1fc25c2-1bb8-4256-900f-de96f5c89291.jpg?v=1707029606"]}, {"id": "ice-pack-for-kids-arlo-sheep", "name": "Arlo Ice Pack", "primary": "Ice Packs", "cats": ["Ice Packs"], "price": "12.00", "blurb": "When your little one has a boo-boo, our Ice Pack for Kids: Arlo Sheep is just what the doctor ordered!", "bullets": [], "body": ["When your little one has a boo-boo, our Ice Pack for Kids: Arlo Sheep is just what the doctor ordered!", "This cute reusable ice pack features flexible gel beads that work great to soothe bumps, bruises, insect bites, fevers, sunburns, and even growing pains. Plus, it's non-toxic and food-grade, so you can be sure they're safe for your kids.", "So next time your kiddo is feeling under the weather, reach for our Ice Pack for Kids and rest assured that they'll be feeling better in no time!", "Get Arlo Sheep bandages, stickers, and a First-Aid Kit to match with our Arlo Sheep First-Aid Keychain !", "You can use our Kids Ice Pack Hot or Cold:", "\ud83e\uddca COLD: Place in freezer for one hour before use.", "\ud83d\udd25 HOT: Warm in hot water before use or microwave for 5-10 seconds.", "Non-toxic, food-grade gel beads. BPA Free. Latex Free. Wipe clean. You can be sure they're safe for your kids.", "Why Should you Get Arlo Sheep Kids Ice Pack:", "It's a safe and effective way to relieve your child's minor aches and pains;", "The cool beads will help to reduce swelling and pain quickly.", "Because it's flexible, it conforms to any part of the body for targeted relief.", "In addition to helping with bruises, it is perfect for use in your child's lunch box.", "Fun Tips:"], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-Icepack-1_1.jpg?v=1662151494", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-Icepack-2_1.jpg?v=1662151494", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Sheep-Icepack-3_1.jpg?v=1662151493"]}, {"id": "soccer-ball-ice-pack", "name": "Soccer Ice Pack", "primary": "Ice Packs", "cats": ["Ice Packs", "Sports"], "price": "12.00", "blurb": "Do you have a budding soccer star in your house? If so, you know that bumps and bruises are just part of the game.", "bullets": [], "body": ["Do you have a budding soccer star in your house? If so, you know that bumps and bruises are just part of the game. With our Soccer Ball Ice Pack, your little ones can be prepared for whatever comes their way.", "This reusable soccer ball ice pack is filled with flexible gel beads that are perfect for soothing any aches and pains. It's also made of non-toxic food-grade gel beads, so you can be sure they're safe for your children.", "So next time your child takes a spill on the field, our soccer ball ice pack it's the perfect way to help them recover quickly and get back in the game.", "Be sure to check out our Soccer Ball First-Aid Keychain , to get your soccer bandages, stickers, and soccer ball-shaped first-aid kit!", "You can use our Soccer Ball Ice Pack Hot or Cold:", "\ud83e\uddca COLD: Place in freezer for one hour before use.", "\ud83d\udd25 HOT: Warm in hot water before use or microwave for 5-10 seconds.", "Non-toxic, food-grade gel beads. BPA Free. Latex Free. Wipe clean. You can be sure they're safe for your kids.", "Why Should you Get our Soccer Ball Ice Pack:", "It's shaped like a soccer ball, so your little soccer fan will love using it.", "This is the perfect way to soothe bumps and bruises, whether it's from playing soccer or just from everyday life.", "Plus, it's reusable, so your kid is always prepared for any boo-boos.", "Fun Tips:", "Keep your child's lunch box contents fresh and cold all day with one or two of these handy ice packs."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Soccer-Ball-Ice-pack-1.jpg?v=1662153677", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Soccer-Ball-Ice-pack-3.jpg?v=1707029994", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Soccer-Ball-Ice-pack-2.jpg?v=1707029994", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9166.jpg?v=1707029994", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9162.jpg?v=1707029994", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9174-Edit.jpg?v=1707029994", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9173.jpg?v=1707029994"]}, {"id": "unicorn-ice-pack-lily", "name": "Lily Ice Pack", "primary": "Ice Packs", "cats": ["Ice Packs"], "price": "12.00", "blurb": "If your child is anything like ours, then they're always getting bumps and bruises. It seems like as soon as we turn our backs, they're falling down or running into things.", "bullets": [], "body": ["*Back in stock!", "If your child is anything like ours, then they're always getting bumps and bruises. It seems like as soon as we turn our backs, they're falling down or running into things. That's why we created Lily Unicorn Kids Ice Pack!", "Perfect for soothing all those little hurts, this reusable ice pack is filled with fun and flexible non-toxic, food-grade gel beads. Whether it's a bump on the head, an insect bite, or a fever, this boo-boo ice pack can help.", "Get UNICORN bandages, UNICORN stickers, and a UNICORN First-Aid Kit to match with our Unicorn FIRST-AID Keychain .", "You can use the Unicorn Ice Pack Hot or Cold:", "\ud83e\uddca COLD: Place in freezer for one hour before use.", "\ud83d\udd25 HOT: Warm in hot water before use or microwave for 5-10 seconds.", "Non-toxic, food-grade gel beads. BPA Free. Latex Free. Wipe clean. You can be sure they're safe for your children.", "Why Should you Get the Unicorn Ice Pack:", "The cool beads will help to reduce swelling and pain quickly.", "Because it's flexible, it conforms to any part of the body for targeted relief.", "Fun Tips for using the Ice Pack:", "For instant winter warmth, our unicorn ice pack can be used hot in mittens or pockets.", "Keep your child's lunch box food fresh and cold all day with one or two of these handy ice packs."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_7228.jpg?v=1714334695", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/unicorn-ice-pack-1_1.jpg?v=1714334675", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/unicorn-ice-pack-3_1.jpg?v=1714334675", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_7043.jpg?v=1714334675", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_7072.jpg?v=1714334675"]}, {"id": "plush-keychains-ice-packs-bundle", "name": "The Original Trio Gift Box", "primary": "Bundles", "cats": ["Bundles"], "price": "69.00", "blurb": "BUNDLE & SAVE! Collect Arlo Sheep, Finn Shark, & Lily Unicorn First-Aid Keychains WITH their matching designer icepacks!", "bullets": [], "body": ["BUNDLE & SAVE! Collect Arlo Sheep, Finn Shark, & Lily Unicorn First-Aid Keychains WITH their matching designer icepacks!", "BUNDLE INCLUDES:", "FINN SHARK Boo-Boo Keychain + Icepack", "LILY UNICORN Boo-Boo Keychain + Icepack", "ARLO SHEEP Boo-Boo Keychain + Icepack", "This adorable care package makes the perfect gift this holiday season.", "Perfect for kids, teenagers, and grandmas purse, too.", "Sterile & self adhesive bandages 100% latex free, 3/4\" x 3\"", "Super soft plush toy on a keychain with a mini Boo Boo Kit inside!", "Plushies 5\"x 6\"", "Hand wash only", "Refill kits sold separately", "Ages 3+", "Adult supervision is required when using this product."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_9460.jpg?v=1636406784", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_8885.jpg?v=1636407054", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_9457.jpg?v=1636406778", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_9431.jpg?v=1636406814", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_8876.jpg?v=1636407046", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_4453.jpg?v=1606588262", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_0991.jpg?v=1606588262"]}, {"id": "1-big-1-little-christmas-bundle", "name": "Big + Little Gift Box", "primary": "Bundles", "cats": ["Bundles"], "price": "62.00", "blurb": "Choose 1 XL BOO BOO BALL + 1 Itty Bitty ON-THE-GO Keychain BOO BOO BALL", "bullets": [], "body": ["Choose 1 XL BOO BOO BALL + 1 Itty Bitty ON-THE-GO Keychain BOO BOO BALL", "This LIMITED EDITION bundle is the perfect gift. Send to a friend as a care package or to a distant loved one - SHIPS RIGHT TO THEIR DOOR!", "This bundle Includes:", "1 XL Super Cuddly BOO BOO BALL", "1 Itty Bitty Keychain BOO BOO BALL for on-the-go", "Adorable gift packaging delivery perfect for GET-WELL-SOON gifts", "Perfect for kids, teens, & grandparents, too."], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/image_19fce897-6774-4deb-8fb5-78fd8a64a883.jpg?v=1653539620", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/image_9b9ede7b-c302-4439-8276-3e3e54ce57de.jpg?v=1653539620", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_4438.jpg?v=1738199742", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/image_c9fd1819-5351-40e3-ac2f-2ed78fb6d886.jpg?v=1738199742", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_0973_5cc30899-ef75-4586-adef-3ae1167959ec.jpg?v=1738199742", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_4455.jpg?v=1653539593"]}, {"id": "everybody-gets-boo-boos-t-shirt", "name": "\"Everybody Gets Boo-Boos\" Tee", "primary": "Merch", "cats": ["Merch"], "price": "45.00", "blurb": "Our iconic \"EVERYBODY GETS BOO-BOOS\" T-SHIRT as seen at our trade shows & events can now be yours!", "bullets": [], "body": ["ATTENTION BOO BOO CREW!", "Our iconic \"EVERYBODY GETS BOO-BOOS\" T-SHIRT as seen at our trade shows & events can now be yours!", "Super Soft, 100% USA grown ringspun cotton", "Narrower ribbed collar for a vintage look", "Double-needle stitch on sleeve and bottom hem and shoulder-to-shoulder tape for comfort and durability", "Available until supplies last", "BOO BOO CREW models shown wearing size small"], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_98212.heic?v=1654189885", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_0911.jpg?v=1654189843", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/IMG_0066.heic?v=1648922583", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/image_476a89e7-88e5-45f0-987c-ac838406a51f.jpg?v=1659234141", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/image_fee4c40f-aa4f-4f58-b3d0-d07a3a2b2d8e.jpg?v=1659234142"]}, {"id": "kids-sports-water-bottle", "name": "Boo Boo Ball Water Bottle", "primary": "Merch", "cats": ["Merch"], "price": "25.00", "blurb": "Looking for a water bottle that will help you or your little one stay hydrated all summer long? That's where our *limited edition* BOO BOO BALL\u2122 Water Bottle comes in!", "bullets": [], "body": ["Looking for a water bottle that will help you or your little one stay hydrated all summer long? That's where our *limited edition* BOO BOO BALL\u2122 Water Bottle comes in!", "The BOO BOO CREW believes in taking care of our body & mind: That's why we'll always make sure you have bandages handy, hugs from your BOO BOO BALL bravery buddy any time you need one, and now a fun reminder to stay hydrated , with our limited edition water bottle!", "Perfect for kids and adults alike, this kid\u2019s sports water bottle will help you stay hydrated during all of those summer outdoor adventures!", "Made with high durability stainless steel , our water bottle is the ultimate accessory for summer camp, cheer camp, yoga, hiking, camping, and more!", "And don't forget to add an ice pack for staying cool - it's going to be a hot summer!", "Don\u2019t be afraid to play in the grass, and get dirty, we\u2019ve got your cuts and scrapes covered! Check out our Boo-Boo First Aid Kits !", "Why Should you Get our Stay Hydrated Water Bottle:", "We all know how important it is to keep the little ones hydrated, especially during those hot summer days. Our Stay Hydrated Water Bottle will make sure they are always topped up on H20!", "Whether you're hitting the pool, the beach, or just the park, our kids' sports water bottle will help you stay cool and hydrated all summer long.", "Other Information:", "** Available until supplies last **", "21oz Stainless Steel Insulated Water Bottle"], "images": ["https://cdn.shopify.com/s/files/1/0253/7127/9412/products/kids-sports-water-bottle-2.jpg?v=1662151918", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/kids-sports-water-bottle-3.jpg?v=1662151918", "https://cdn.shopify.com/s/files/1/0253/7127/9412/products/kids-sports-water-bottle-4.jpg?v=1662151917", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/image_068c2ed8-eab1-409b-95ba-cabe236c2de9.jpg?v=1683943945", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/image_ac333382-d4c9-4ec5-b6b3-83898407627a.jpg?v=1683943948", "https://cdn.shopify.com/s/files/1/0253/7127/9412/files/image_8b2fac96-5cbc-4c3e-a8cf-4e46fe61cc45.jpg?v=1683943950"]}];
+const TINT = ['#FFE3EC','#DFF4FB','#E4F7EC','#FFF1D6','#EDE7FE','#FFE7D9'];
+
+function cardHTML(p, i){
+  return `<button class="card" data-id="${p.id}">
+    <div class="ph" style="background:${TINT[i % TINT.length]}">
+      <img src="${p.images[0]}" alt="${p.name}" loading="lazy">
+      <span class="tag">${p.primary}</span>
+    </div>
+    <div class="body">
+      <h3>${p.name}</h3>
+      <div class="desc">${p.blurb}</div>
+      <div class="foot"><span class="price">$${Math.round(parseFloat(p.price))}</span><span class="look">Take a look →</span></div>
+    </div>
+  </button>`;
+}
+
+function fill(el, list){
+  if(!el) return;
+  el.innerHTML = list.map(cardHTML).join('');
+}
+
+fill(document.getElementById('grid-plushies'), PRODUCTS.filter(p => p.primary === 'Plushies'));
+fill(document.getElementById('grid-keychains'), PRODUCTS.filter(p => p.primary === 'Keychains'));
+fill(document.getElementById('grid-icepacks'), PRODUCTS.filter(p => p.primary === 'Ice Packs'));
+
+const CATS = ['Everything','Plushies','Keychains','Ice Packs','Sports','Bundles','Merch'];
+const fbox = document.getElementById('filters');
+fbox.innerHTML = CATS.map((c, i) => `<button data-cat="${c}" aria-pressed="${i === 0}">${c}</button>`).join('');
+function applyFilter(cat){
+  const list = cat === 'Everything' ? PRODUCTS : PRODUCTS.filter(p => p.cats.includes(cat));
+  fill(document.getElementById('grid-all'), list);
+  [...fbox.children].forEach(b => b.setAttribute('aria-pressed', b.dataset.cat === cat));
+}
+fbox.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (b) applyFilter(b.dataset.cat);
+});
+applyFilter('Everything');
+
+const modal = document.getElementById('modal');
+function openModal(id){
+  const p = PRODUCTS.find(x => x.id === id);
+  if(!p) return;
+  document.getElementById('m-cat').textContent = p.primary;
+  document.getElementById('m-name').textContent = p.name;
+  document.getElementById('m-price').textContent = '$' + Math.round(parseFloat(p.price));
+  document.getElementById('m-blurb').textContent = p.blurb;
+  const bul = document.getElementById('m-bul');
+  bul.innerHTML = p.bullets.map(b => `<li>${b}</li>`).join('');
+  const extra = p.body.filter(l => l !== p.blurb && l.length > 80 && !p.bullets.includes(l)).slice(0, 1);
+  document.getElementById('m-more').textContent = extra[0] || '';
+  const img = document.getElementById('m-img');
+  img.src = p.images[0]; img.alt = p.name;
+  const th = document.getElementById('m-thumbs');
+  th.innerHTML = p.images.map((s, i) => `<img src="${s}" class="${i === 0 ? 'on' : ''}" alt="">`).join('');
+  th.onclick = e => {
+    if (e.target.tagName !== 'IMG') return;
+    img.src = e.target.src;
+    [...th.children].forEach(t => t.classList.toggle('on', t === e.target));
+  };
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){ modal.classList.remove('open'); document.body.style.overflow = ''; }
+document.addEventListener('click', e => {
+  const c = e.target.closest('.card');
+  if (c) { openModal(c.dataset.id); return; }
+  if (e.target.closest('[data-close]')) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.getElementById('burger').onclick = () => document.getElementById('links').classList.toggle('open');
+</script>
+</body>
+</html>
