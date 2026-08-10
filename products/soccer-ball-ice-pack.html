@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soccer Ice Pack — Boo Boo Ball</title>
+<meta name="description" content="Do you have a budding soccer star in your house? If so, you know that bumps and bruises are just part of the game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF8F0;
+  --paper:#FFFFFF;
+  --ink:#2F2A3D;
+  --ink-soft:#635C78;
+  --blush:#FF7FA8;
+  --blush-deep:#E85C8A;
+  --sky:#5CC9E8;
+  --mint:#63D19B;
+  --butter:#FFC94D;
+  --grape:#9B7FE8;
+  --peach:#FFA26B;
+  --r-lg:34px;
+  --r-md:24px;
+  --r-sm:14px;
+  --shadow:0 14px 0 rgba(47,42,61,.07);
+  --shadow-hi:0 22px 34px -18px rgba(47,42,61,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Nunito',system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  overflow-x:hidden;
+  background-image:radial-gradient(rgba(255,127,168,.14) 1.6px, transparent 1.7px);
+  background-size:26px 26px;
+}
+h1,h2,h3,h4,.display{font-family:'Baloo 2',cursive;font-weight:800;line-height:1.06;letter-spacing:-.01em;margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1240px,92vw);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- announcement + nav ---------- */
+.ticker{background:var(--ink);color:#fff;font-weight:700;font-size:14px;letter-spacing:.04em;padding:9px 0;text-align:center}
+.ticker span{display:inline-block;padding:0 14px}
+.ticker b{color:var(--butter)}
+header{position:sticky;top:0;z-index:60;background:rgba(255,248,240,.92);backdrop-filter:blur(10px);border-bottom:3px solid rgba(47,42,61,.07)}
+.nav{display:flex;align-items:center;gap:20px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.blob{width:46px;height:46px;border-radius:50% 50% 48% 52%/52% 48% 52% 48%;background:var(--blush);display:grid;place-items:center;box-shadow:0 6px 0 var(--blush-deep);flex:none}
+.blob i{display:block;width:24px;height:9px;border-radius:5px;background:#fff;transform:rotate(-38deg);position:relative}
+.blob i::after{content:"";position:absolute;inset:2px 7px;background:rgba(255,127,168,.55);border-radius:3px}
+.brand-txt strong{display:block;font-family:'Baloo 2',cursive;font-size:21px;font-weight:800;letter-spacing:.03em;line-height:1}
+.brand-txt em{font-style:normal;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
+nav.links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav.links a{
+  text-decoration:none;font-weight:800;font-size:15px;padding:9px 15px;border-radius:999px;
+  transition:background .18s ease,color .18s ease,transform .18s ease
+}
+nav.links a:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}
+.callbtn{
+  flex:none;text-decoration:none;font-weight:800;font-size:15px;background:var(--ink);color:var(--cream);
+  padding:11px 20px;border-radius:999px;box-shadow:0 5px 0 rgba(47,42,61,.35);transition:transform .16s ease,box-shadow .16s ease
+}
+.callbtn:hover{transform:translateY(-3px);box-shadow:0 8px 0 rgba(47,42,61,.35)}
+.burger{display:none;margin-left:auto;background:var(--ink);color:var(--cream);border:0;border-radius:14px;padding:10px 14px;font-size:19px;cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{padding:52px 0 30px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:34px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;background:var(--butter);color:var(--ink);
+  font-weight:800;font-size:13px;letter-spacing:.11em;text-transform:uppercase;
+  padding:8px 17px;border-radius:999px;box-shadow:0 5px 0 rgba(47,42,61,.14);margin-bottom:20px
+}
+.hero h1{font-size:clamp(46px,6.6vw,86px)}
+.hero h1 .pop{
+  color:var(--blush);position:relative;display:inline-block;
+  animation:wiggle 5s ease-in-out infinite
+}
+@keyframes wiggle{0%,88%,100%{transform:rotate(-2deg)}92%{transform:rotate(3deg)}96%{transform:rotate(-3deg)}}
+.hero p.lede{font-size:19px;color:var(--ink-soft);max-width:31em;margin:20px 0 30px;font-weight:600}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  border:0;cursor:pointer;font-family:'Baloo 2',cursive;font-weight:700;font-size:19px;
+  padding:15px 30px;border-radius:999px;text-decoration:none;display:inline-block;
+  transition:transform .16s ease,box-shadow .16s ease
+}
+.btn-primary{background:var(--blush);color:#fff;box-shadow:0 7px 0 var(--blush-deep)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 11px 0 var(--blush-deep)}
+.btn-ghost{background:#fff;color:var(--ink);box-shadow:0 7px 0 rgba(47,42,61,.16)}
+.btn-ghost:hover{transform:translateY(-3px);box-shadow:0 11px 0 rgba(47,42,61,.16)}
+
+.hero-art{position:relative}
+.hero-photo{
+  border-radius:var(--r-lg);overflow:hidden;background:var(--sky);
+  box-shadow:var(--shadow-hi);aspect-ratio:1/1;
+  transform:rotate(-2deg)
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.chip-float{
+  position:absolute;background:#fff;border-radius:20px;padding:11px 17px;font-weight:800;font-size:14px;
+  box-shadow:0 12px 24px -12px rgba(47,42,61,.5);display:flex;align-items:center;gap:9px;white-space:nowrap
+}
+.chip-float b{font-size:19px;line-height:1}
+.chip-1{top:8%;left:-4%;animation:bob 4.2s ease-in-out infinite}
+.chip-2{bottom:16%;right:-3%;animation:bob 5.1s ease-in-out infinite .6s}
+.chip-3{bottom:-3%;left:9%;animation:bob 4.6s ease-in-out infinite 1.2s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-11px) rotate(2deg)}}
+
+/* ---------- inside strip ---------- */
+.inside{margin:44px 0 10px;background:var(--ink);border-radius:var(--r-lg);padding:34px;color:var(--cream)}
+.inside h2{font-size:29px;margin-bottom:6px}
+.inside p.sub{color:rgba(255,248,240,.72);font-weight:600;margin:0 0 26px}
+.inside-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.inside-card{background:rgba(255,255,255,.07);border-radius:var(--r-md);padding:22px 20px}
+.inside-card .ic{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;font-size:25px;margin-bottom:13px}
+.inside-card h3{font-size:20px;margin-bottom:5px}
+.inside-card p{margin:0;font-size:14.5px;color:rgba(255,248,240,.7);font-weight:600;line-height:1.5}
+
+/* ---------- sections ---------- */
+section{padding:62px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin-bottom:30px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(34px,4.4vw,52px)}
+.sec-head p{margin:9px 0 0;color:var(--ink-soft);font-weight:600;max-width:44ch}
+.squiggle{display:block;width:120px;height:12px;margin-bottom:14px}
+
+/* filter chips */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.filters button{
+  font-family:'Baloo 2',cursive;font-size:17px;font-weight:700;border:0;cursor:pointer;
+  background:#fff;color:var(--ink);padding:10px 22px;border-radius:999px;
+  box-shadow:0 5px 0 rgba(47,42,61,.12);transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease
+}
+.filters button:hover{transform:translateY(-2px)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--cream);box-shadow:0 5px 0 rgba(47,42,61,.35)}
+
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{
+  background:var(--paper);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;border:0;
+  text-align:left;font:inherit;color:inherit;padding:0;display:flex;flex-direction:column;
+  box-shadow:var(--shadow);transition:transform .22s cubic-bezier(.2,.8,.3,1),box-shadow .22s ease
+}
+.card:hover{transform:translateY(-9px) rotate(-1.1deg);box-shadow:var(--shadow-hi)}
+.card:focus-visible{outline:4px solid var(--grape);outline-offset:3px}
+.card .ph{position:relative;aspect-ratio:1/1;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.3,1)}
+.card:hover .ph img{transform:scale(1.07)}
+.tag{
+  position:absolute;top:13px;left:13px;background:#fff;font-size:12px;font-weight:800;
+  letter-spacing:.07em;text-transform:uppercase;padding:6px 13px;border-radius:999px;
+  box-shadow:0 4px 10px -4px rgba(47,42,61,.5)
+}
+.card .body{padding:17px 19px 21px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card h3{font-size:21px}
+.card .desc{font-size:14.5px;color:var(--ink-soft);font-weight:600;line-height:1.5;flex:1;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:5px}
+.price{font-family:'Baloo 2',cursive;font-weight:800;font-size:23px}
+.look{font-size:13.5px;font-weight:800;color:var(--blush-deep);letter-spacing:.03em}
+
+/* ---------- story ---------- */
+.story{background:var(--mint);border-radius:var(--r-lg);padding:0;overflow:hidden}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.story-txt{padding:52px 46px}
+.story-txt h2{font-size:clamp(32px,4vw,48px);margin-bottom:16px}
+.story-txt p{font-weight:600;font-size:17.5px;margin:0 0 15px;color:#1F4633}
+.story-photo img{width:100%;height:100%;object-fit:cover;min-height:340px}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.stat{background:rgba(255,255,255,.75);border-radius:20px;padding:13px 20px}
+.stat b{display:block;font-family:'Baloo 2',cursive;font-size:27px;line-height:1}
+.stat span{font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#2C6047}
+
+/* ---------- promises ---------- */
+.promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.promise{background:#fff;border-radius:var(--r-lg);padding:30px 28px;box-shadow:var(--shadow)}
+.promise .ic{font-size:32px;margin-bottom:12px}
+.promise h3{font-size:23px;margin-bottom:7px}
+.promise p{margin:0;color:var(--ink-soft);font-weight:600;font-size:15.5px}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--cream);padding:56px 0 30px;margin-top:20px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:34px}
+footer h4{font-size:19px;margin-bottom:13px}
+footer a{color:rgba(255,248,240,.74);text-decoration:none;font-weight:600;font-size:15.5px;display:block;padding:4px 0}
+footer a:hover{color:var(--butter)}
+footer p{color:rgba(255,248,240,.66);font-weight:600;font-size:15px;margin:0 0 10px}
+.f-bottom{margin-top:38px;padding-top:20px;border-top:1px solid rgba(255,248,240,.16);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px;color:rgba(255,248,240,.5);font-weight:600}
+.f-brand .blob{box-shadow:0 6px 0 var(--blush-deep)}
+
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;z-index:100;display:none;padding:24px}
+.modal.open{display:grid;place-items:center}
+.scrim{position:absolute;inset:0;background:rgba(47,42,61,.62);backdrop-filter:blur(4px)}
+.sheet{
+  position:relative;background:var(--cream);border-radius:var(--r-lg);width:min(1020px,100%);
+  max-height:88vh;overflow:auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);
+  animation:pop .28s cubic-bezier(.2,.9,.3,1.2)
+}
+@keyframes pop{from{transform:scale(.94) translateY(14px);opacity:0}to{transform:none;opacity:1}}
+.sheet-grid{display:grid;grid-template-columns:1fr 1fr}
+.gal{padding:22px}
+.gal .main{border-radius:var(--r-md);overflow:hidden;aspect-ratio:1/1;background:#fff}
+.gal .main img{width:100%;height:100%;object-fit:cover}
+.thumbs{display:flex;gap:9px;margin-top:11px;flex-wrap:wrap}
+.thumbs img{width:60px;height:60px;object-fit:cover;border-radius:13px;cursor:pointer;opacity:.55;transition:opacity .15s ease,transform .15s ease}
+.thumbs img:hover,.thumbs img.on{opacity:1;transform:translateY(-3px)}
+.det{padding:30px 30px 34px}
+.det h2{font-size:34px;margin-bottom:9px}
+.det .price{font-size:29px;color:var(--blush-deep);margin-bottom:14px}
+.det p{font-weight:600;color:var(--ink-soft);font-size:16px}
+.det ul{padding-left:0;list-style:none;margin:16px 0}
+.det li{font-weight:700;font-size:15.5px;padding:7px 0 7px 30px;position:relative}
+.det li::before{content:"";position:absolute;left:0;top:12px;width:17px;height:8px;border-radius:4px;background:var(--blush);transform:rotate(-30deg)}
+.closeb{position:absolute;top:15px;right:15px;z-index:3;background:#fff;border:0;width:44px;height:44px;border-radius:50%;font-size:22px;cursor:pointer;box-shadow:0 8px 18px -8px rgba(0,0,0,.5)}
+.closeb:hover{transform:scale(1.08)}
+
+@media(max-width:1000px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .inside-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-grid,.story-grid,.sheet-grid{grid-template-columns:1fr}
+  .story-txt{padding:38px 30px}
+  .story-photo img{min-height:260px}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  nav.links{display:none}
+  nav.links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:12px;box-shadow:0 20px 30px -20px rgba(0,0,0,.4)}
+  .burger{display:block}
+  .callbtn{display:none}
+  .grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .promise-grid{grid-template-columns:1fr}
+  .hero{padding-top:34px}
+  .chip-1,.chip-3{display:none}
+  .card h3{font-size:18px}
+  .det{padding:22px}
+  section{padding:44px 0}
+}
+@media(max-width:430px){ .grid{grid-template-columns:1fr} .inside-grid{grid-template-columns:1fr} }
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- product page ---------- */
+.crumb{padding:26px 0 0;font-weight:700;font-size:14.5px;color:var(--ink-soft)}
+.crumb a{text-decoration:none}
+.crumb a:hover{color:var(--blush-deep)}
+.pdp{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;padding:26px 0 10px;align-items:start}
+.pdp-gal .main{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:1/1;box-shadow:var(--shadow-hi)}
+.pdp-gal .main img{width:100%;height:100%;object-fit:cover}
+.pdp-gal .thumbs{display:flex;gap:10px;margin-top:13px;flex-wrap:wrap}
+.pdp-gal .thumbs img{width:72px;height:72px;object-fit:cover;border-radius:16px;cursor:pointer;opacity:.5;
+  transition:opacity .16s ease,transform .16s ease;background:#fff}
+.pdp-gal .thumbs img:hover,.pdp-gal .thumbs img.on{opacity:1;transform:translateY(-3px)}
+.pdp-info h1{font-size:clamp(36px,4.6vw,54px);margin:10px 0 6px}
+.pdp-price{font-family:'Baloo 2',cursive;font-weight:800;font-size:36px;color:var(--blush-deep);margin-bottom:16px}
+.pdp-info .lede{font-size:18.5px;font-weight:600;color:var(--ink-soft);margin:0 0 22px}
+.kit{background:var(--ink);color:var(--cream);border-radius:var(--r-md);padding:24px 26px;margin:22px 0}
+.kit h3{font-size:21px;margin-bottom:12px}
+.kit ul{list-style:none;padding:0;margin:0}
+.kit li{font-weight:700;font-size:15.5px;padding:8px 0 8px 32px;position:relative;
+  border-bottom:1px solid rgba(255,248,240,.1)}
+.kit li:last-child{border-bottom:0}
+.kit li::before{content:"";position:absolute;left:0;top:15px;width:18px;height:8px;border-radius:4px;
+  background:var(--blush);transform:rotate(-30deg)}
+.copy p{font-weight:600;color:var(--ink-soft);font-size:16.5px;margin:0 0 14px}
+.pdp-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.badge-row{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:6px}
+.badge{background:#fff;font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  padding:7px 14px;border-radius:999px;box-shadow:0 4px 0 rgba(47,42,61,.1)}
+/* ---------- about ---------- */
+.about-hero{padding:46px 0 10px;text-align:center}
+.about-hero h1{font-size:clamp(42px,6vw,76px);margin-bottom:14px}
+.about-hero p{font-size:19.5px;font-weight:600;color:var(--ink-soft);max-width:60ch;margin:0 auto}
+.band{border-radius:var(--r-lg);padding:44px 42px;margin:22px 0}
+.band h2{font-size:clamp(30px,3.6vw,42px);margin-bottom:12px}
+.band p{font-weight:600;font-size:17.5px;margin:0 0 14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:1000px){.pdp{grid-template-columns:1fr;gap:28px}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="ticker">
+  <span>&#128666; <b>Free shipping</b> on USA orders over $75</span>
+  <span>&#129657; First-aid kit <b>+</b> comforting plush, all in one</span>
+  <span>&#10052;&#65039; Non-toxic, food-grade ice packs</span>
+</div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <span class="blob"><i></i></span>
+      <span class="brand-txt"><strong>BOO BOO BALL</strong><em>First Aid Plushies</em></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+    <nav class="links" id="links">
+      <a href="../index.html#plushies">Plushies</a>
+      <a href="../index.html#keychains">Keychains</a>
+      <a href="../index.html#icepacks">Ice Packs</a>
+      <a href="../index.html#shop">Everything</a>
+      <a href="../about.html">Our Story</a>
+    </nav>
+    <a class="callbtn" href="tel:16366973445">1-636-697-3445</a>
+  </div>
+</header>
+<main>
+<div class="wrap">
+  <div class="crumb"><a href="../index.html">Home</a> &nbsp;&rsaquo;&nbsp; <a href="../index.html#shop">Ice Packs</a> &nbsp;&rsaquo;&nbsp; Soccer Ice Pack</div>
+  <div class="pdp">
+    <div class="pdp-gal">
+      <div class="main" style="background:#FFE7D9"><img id="mainimg" src="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Soccer-Ball-Ice-pack-1.jpg?v=1662153677" alt="Soccer Ice Pack"></div>
+      <div class="thumbs" id="thumbs"><img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Soccer-Ball-Ice-pack-1.jpg?v=1662153677" data-full="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Soccer-Ball-Ice-pack-1.jpg?v=1662153677" class="on" alt=""><img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Soccer-Ball-Ice-pack-3.jpg?v=1707029994" data-full="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Soccer-Ball-Ice-pack-3.jpg?v=1707029994" class="" alt=""><img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Soccer-Ball-Ice-pack-2.jpg?v=1707029994" data-full="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Soccer-Ball-Ice-pack-2.jpg?v=1707029994" class="" alt=""><img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9166.jpg?v=1707029994" data-full="https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9166.jpg?v=1707029994" class="" alt=""><img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9162.jpg?v=1707029994" data-full="https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9162.jpg?v=1707029994" class="" alt=""><img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9174-Edit.jpg?v=1707029994" data-full="https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9174-Edit.jpg?v=1707029994" class="" alt=""><img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9173.jpg?v=1707029994" data-full="https://cdn.shopify.com/s/files/1/0253/7127/9412/files/IMG_9173.jpg?v=1707029994" class="" alt=""></div>
+    </div>
+    <div class="pdp-info">
+      <div class="badge-row"><span class="badge">Ice Packs</span><span class="badge">Sports</span></div>
+      <h1>Soccer Ice Pack</h1>
+      <div class="pdp-price">$12</div>
+      <p class="lede">Do you have a budding soccer star in your house? If so, you know that bumps and bruises are just part of the game.</p>
+      
+      <div class="copy"><p>Do you have a budding soccer star in your house? If so, you know that bumps and bruises are just part of the game. With our Soccer Ball Ice Pack, your little ones can be prepared for whatever comes their way.</p><p>This reusable soccer ball ice pack is filled with flexible gel beads that are perfect for soothing any aches and pains. It&#x27;s also made of non-toxic food-grade gel beads, so you can be sure they&#x27;re safe for your children.</p><p>So next time your child takes a spill on the field, our soccer ball ice pack it&#x27;s the perfect way to help them recover quickly and get back in the game.</p><p>Be sure to check out our Soccer Ball First-Aid Keychain , to get your soccer bandages, stickers, and soccer ball-shaped first-aid kit!</p><p>🔥 HOT: Warm in hot water before use or microwave for 5-10 seconds.</p></div>
+      <div class="pdp-cta">
+        <a class="btn btn-primary" href="tel:16366973445">Ask about this</a>
+        <a class="btn btn-ghost" href="../index.html#shop">Back to the collection</a>
+      </div>
+      <p style="font-size:13.5px;color:var(--ink-soft);margin-top:18px">Listed in the store as<br><span style="opacity:.75">Soccer Ice Pack (2 Pack) Non-Toxic Kids Ice Pack | BOO BOO BALL™</span></p>
+    </div>
+  </div>
+</div>
+
+<section style="padding-top:34px">
+  <div class="wrap">
+    <div class="sec-head"><div>
+      <svg class="squiggle" viewBox="0 0 120 12" fill="none"><path d="M2 8c8-8 16 8 24 0s16 8 24 0 16 8 24 0 16 8 24 0" stroke="#FF7FA8" stroke-width="4" stroke-linecap="round"/></svg>
+      <h2>More friends like this</h2>
+    </div></div>
+    <div class="grid"><a class="card" href="../products/baseball-ice-pack.html" style="text-decoration:none">
+  <div class="ph" style="background:#FFE3EC">
+    <img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/baseball-ice-pack-1.jpg?v=1662142157" alt="Baseball Ice Pack" loading="lazy">
+    <span class="tag">Ice Packs</span>
+  </div>
+  <div class="body">
+    <h3>Baseball Ice Pack</h3>
+    <div class="desc">Make sure you&#x27;re always prepared for the baseball park with our Baseball Ice Pack for Kids! This handy reusable ice pack is perfect for taking along to games or practice, in case of any boo-boos.</div>
+    <div class="foot"><span class="price">$12</span><span class="look">Take a look &rarr;</span></div>
+  </div>
+</a><a class="card" href="../products/basketball-ice-pack.html" style="text-decoration:none">
+  <div class="ph" style="background:#DFF4FB">
+    <img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/basketball-ice-pack-1_1.jpg?v=1662149906" alt="Basketball Ice Pack" loading="lazy">
+    <span class="tag">Ice Packs</span>
+  </div>
+  <div class="body">
+    <h3>Basketball Ice Pack</h3>
+    <div class="desc">Looking for a way to help your kiddo bounce back from boo-boos? Check out our Basketball Ice Pack !</div>
+    <div class="foot"><span class="price">$12</span><span class="look">Take a look &rarr;</span></div>
+  </div>
+</a><a class="card" href="../products/cheer-icepack.html" style="text-decoration:none">
+  <div class="ph" style="background:#E4F7EC">
+    <img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/cheer-ice-pack-1_1.jpg?v=1662150403" alt="Cheer Ice Pack" loading="lazy">
+    <span class="tag">Ice Packs</span>
+  </div>
+  <div class="body">
+    <h3>Cheer Ice Pack</h3>
+    <div class="desc">Introducing the Cheerleading Ice Pack for Kids ! This amazing ice pack is perfect for soothing any minor injuries sustained during cheerleading practice or performances.</div>
+    <div class="foot"><span class="price">$12</span><span class="look">Take a look &rarr;</span></div>
+  </div>
+</a><a class="card" href="../products/non-toxic-ice-pack-dragon-lizarbocker.html" style="text-decoration:none">
+  <div class="ph" style="background:#FFF1D6">
+    <img src="https://cdn.shopify.com/s/files/1/0253/7127/9412/products/Non-Toxic-Ice-Pack-Mr-Lizarbocker-Dragon-1_1.jpg?v=1662152047" alt="Mr. Lizarbocker Ice Pack" loading="lazy">
+    <span class="tag">Ice Packs</span>
+  </div>
+  <div class="body">
+    <h3>Mr. Lizarbocker Ice Pack</h3>
+    <div class="desc">Looking for a fun way to soothe your child&#x27;s bumps and bruises? Look no further than our Non-Toxic Ice Pack: Mr.</div>
+    <div class="foot"><span class="price">$12</span><span class="look">Take a look &rarr;</span></div>
+  </div>
+</a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="brand f-brand" style="margin-bottom:14px">
+          <span class="blob"><i></i></span>
+          <span class="brand-txt"><strong>BOO BOO BALL</strong><em style="color:rgba(255,248,240,.6)">First Aid Plushies</em></span>
+        </div>
+        <p>A first-aid kit and a comforting plush, all in one. We make boo-boos fun!</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="../index.html#plushies">Plushies</a>
+        <a href="../index.html#keychains">Keychains</a>
+        <a href="../index.html#icepacks">Ice Packs</a>
+        <a href="../index.html#shop">Bundles &amp; Merch</a>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <a href="../index.html#inside">What's inside</a>
+        <a href="../about.html">Our story</a>
+        <a href="../index.html#shop">Shipping</a>
+        <a href="../index.html#shop">Wholesale</a>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <a href="tel:16366973445">1-636-697-3445</a>
+        <a href="../index.html">Facebook</a>
+        <a href="../index.html">Instagram</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>&copy; Boo Boo Ball&trade;. All rights reserved.</span>
+      <span>Design concept &mdash; demo build</span>
+    </div>
+  </div>
+</footer>
+<script>
+document.getElementById('burger').onclick = () => document.getElementById('links').classList.toggle('open');
+const th = document.getElementById('thumbs');
+if (th) {
+  const main = document.getElementById('mainimg');
+  th.addEventListener('click', e => {
+    if (e.target.tagName !== 'IMG') return;
+    main.src = e.target.dataset.full;
+    [...th.children].forEach(t => t.classList.toggle('on', t === e.target));
+  });
+}
+</script>
+</body>
+</html>

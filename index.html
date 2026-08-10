@@ -267,7 +267,7 @@ footer p{color:rgba(255,248,240,.66);font-weight:600;font-size:15px;margin:0 0 1
       <a href="#keychains">Keychains</a>
       <a href="#icepacks">Ice Packs</a>
       <a href="#shop">Everything</a>
-      <a href="#story">Our Story</a>
+      <a href="about.html">Our Story</a>
     </nav>
     <a class="callbtn" href="tel:16366973445">1-636-697-3445</a>
   </div>
@@ -410,7 +410,7 @@ footer p{color:rgba(255,248,240,.66);font-weight:600;font-size:15px;margin:0 0 1
       <div>
         <h4>Help</h4>
         <a href="#inside">What's inside</a>
-        <a href="#story">Our story</a>
+        <a href="about.html">Our story</a>
         <a href="#shop">Shipping</a>
         <a href="#shop">Wholesale</a>
       </div>
@@ -444,6 +444,7 @@ footer p{color:rgba(255,248,240,.66);font-weight:600;font-size:15px;margin:0 0 1
         <p id="m-blurb"></p>
         <ul id="m-bul"></ul>
         <p id="m-more" style="font-size:15px"></p>
+        <a class="btn btn-primary" id="m-link" href="#" style="margin-top:6px">See the full page</a>
       </div>
     </div>
   </div>
@@ -511,6 +512,7 @@ function openModal(id){
     img.src = e.target.src;
     [...th.children].forEach(t => t.classList.toggle('on', t === e.target));
   };
+  document.getElementById('m-link').href = 'products/' + p.id + '.html';
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
